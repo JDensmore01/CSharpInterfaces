@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharpInterface_Lib
 {
-    public class Car : IVehicle
+    public class Car : IVehicle, IPrintable
     {
         public string Make { get; set; }
         public string Model { get; set; }
@@ -67,6 +67,22 @@ namespace CSharpInterface_Lib
             {
                 Gear = -1;
             }
+        }
+
+        /// <summary>
+        /// Printing details of the car
+        /// </summary>
+        /// <returns>The car details</returns>
+        public string Print()
+        {
+            string car = "This is a car\n";
+            car += $"Make: {Make}\n";
+            car += $"Model: {Model}\n";
+            car += $"Speed: {Speed}\n";
+            car += $"Gear: {Gear}\n";
+            car += $"Fuel Level: {FuelLevel} litres";
+
+            return car;
         }
     }
 }

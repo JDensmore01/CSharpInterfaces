@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharpInterface_Lib
 {
-    public class Bicycle : IVehicle
+    public class Bicycle : IVehicle, IPrintable
     {
         private string make;
 
@@ -85,6 +85,22 @@ namespace CSharpInterface_Lib
         public void SpeedUp(int increment)
         {
             Speed += increment;
+        }
+
+        /// <summary>
+        /// Print the details of the bicycle
+        /// </summary>
+        /// <returns>The details of the bike</returns>
+        public string Print()
+        {
+            string bike = "This is a bicycle\n";
+            bike += $"Make: {Make}\n";
+            bike += $"Model: {Model}\n";
+            bike += $"Speed: {Speed}\n";
+            bike += $"Gear: {Gear}\n";
+            bike += $"Kickstand Down: {KickStandDown}";
+
+            return bike;
         }
     }
 }

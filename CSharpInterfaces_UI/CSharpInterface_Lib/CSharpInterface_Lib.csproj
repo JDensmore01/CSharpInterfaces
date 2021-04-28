@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Bicycle.cs" />
     <Compile Include="Car.cs" />
+    <Compile Include="IPrintable.cs" />
     <Compile Include="IVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

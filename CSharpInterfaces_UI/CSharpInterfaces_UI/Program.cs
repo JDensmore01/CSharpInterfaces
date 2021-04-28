@@ -33,11 +33,45 @@ namespace CSharpInterfaces_UI
 
                 List<IVehicle> myRides = new List<IVehicle>() { myBike, myCar, anotherCar };
 
+                List<IPrintable> myVehicles = new List<IPrintable>()
+                {
+                    (IPrintable)myBike,
+                    (IPrintable)myCar,
+                    (IPrintable)anotherCar
+                };
+
+                foreach (IPrintable p in myVehicles)
+                {
+                    P(p.Print() + Environment.NewLine);
+
+                    if (p is Bicycle)
+                    {
+                        P("This is a bike.\n");
+                    }
+
+                    if (p is Car)
+                    {
+                        P("This is a car.\n");
+                    }                    
+                }
+
                 foreach (IVehicle v in myRides)
                 {
                     P($"{v.Make} \t\t{v.Model}");
                     if (v is Car)
                         v.ChangeGear(0); //Polymorphic
+
+                    if (v is Bicycle)
+                    {
+                        P("This is a bike.\n");
+                    }
+
+                    if (v is Car)
+                    {
+                        P("This is a car.\n");
+                    }
+
+                    P(((IPrintable)v).Print());//Polymorphic
                 }
 
                 foreach (IVehicle v in myRides.Where(r=>r is Car))
